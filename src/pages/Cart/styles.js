@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
   padding: 30px;
-  background: #FFF;
+  background: #fff;
   border-radius: 4px;
 
   footer {
@@ -14,7 +14,7 @@ export const Container = styled.div`
 
     button {
       background: #7159c1;
-      color: #FFF;
+      color: #fff;
       border: 0;
       border-radius: 4px;
       padding: 12px 20px;
@@ -38,7 +38,8 @@ export const ProductTable = styled.table`
     padding: 12px;
   }
 
-  tbody, td {
+  tbody,
+  td {
     padding: 12px;
     border-bottom: 1px solid #eee;
   }

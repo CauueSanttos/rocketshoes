@@ -8,8 +8,8 @@ import { formatPrice } from '../../../util/format';
 import { addToCartSuccess, updateAmountSuccess } from './actions';
 
 function* addToCart({ id }) {
-  const productExists = yield select(
-    state => state.cart.find(p => p.id === id),
+  const productExists = yield select(state =>
+    state.cart.find(p => p.id === id)
   );
 
   const stock = yield call(api.get, `/stock/${id}`);
@@ -26,8 +26,7 @@ function* addToCart({ id }) {
 
   if (productExists) {
     yield put(updateAmountSuccess(id, amount));
-  }
-  else {
+  } else {
     const response = yield call(api.get, `/products/${id}`);
 
     const data = {

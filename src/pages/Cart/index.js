@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
   MdRemoveCircleOutline,
   MdAddCircleOutline,
-  MdDelete
+  MdDelete,
 } from 'react-icons/md';
 
 import { formatPrice } from '../../util/format';
@@ -22,7 +22,6 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
     updateAmountRequest(product.id, product.amount - 1);
   }
 
-
   return (
     <Container>
       <ProductTable>
@@ -39,10 +38,7 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
           {cart.map(product => (
             <tr key={product.id}>
               <td>
-                <img
-                  src={product.image}
-                  alt={product.title}
-                />
+                <img src={product.image} alt={product.title} />
               </td>
               <td>
                 <strong>{product.title}</strong>
@@ -91,9 +87,11 @@ const mapStateToProps = state => ({
     ...product,
     subtotal: formatPrice(product.price * product.amount),
   })),
-  total: formatPrice(state.cart.reduce((total, product) => {
-    return total + product.price * product.amount;
-  }, 0)),
+  total: formatPrice(
+    state.cart.reduce((total, product) => {
+      return total + product.price * product.amount;
+    }, 0)
+  ),
 });
 
 const mapDispatchToProps = dispatch =>
